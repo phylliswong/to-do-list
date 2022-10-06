@@ -15,7 +15,7 @@ const ToDo = (props) => {
     setUpdateTaskData,
     deleteTask
   } = props;
-  
+
   return (
     <Fragment key={task.id}>
       <div className='col task-bg'>
