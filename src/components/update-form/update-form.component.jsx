@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './update-form.style.css';
 
 const UpdateForm = (props) => {
   const { changeTask, updateTask, updateTaskData, cancelUpdate } = props;
