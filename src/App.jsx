@@ -86,7 +86,8 @@ function App() {
         .sort((a, b) => a.id > b.id ? 1 : -1)
         .map((task, index) => {
           return(
-            <ToDo 
+            <ToDo
+              key={task.id}
               task={task}
               index={index}
               markDone={markDone}
