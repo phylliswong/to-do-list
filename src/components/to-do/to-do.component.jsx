@@ -35,11 +35,7 @@ const ToDo = (props) => {
           {task.status ? null : (
             <span
               title='Edit'
-              onClick={ () => setUpdateTaskData({
-                id: task.id,
-                title: task.title,
-                status: task.status ? true : false
-              })}
+              onClick={ () => setUpdateTaskData(task)}
             >
               <FontAwesomeIcon icon={faPen} />
             </span>

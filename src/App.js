@@ -14,58 +14,60 @@ function App() {
 
   const addTask = () => {
     if (newTask) {
-      let num = toDo.length + 1;
-      let newEntry = {
-        id: num,
-        title: newTask,
-        status: false
-      }
-      setToDo([...toDo, newEntry]);
+      const num = toDo.length + 1;
+      setToDo([
+        ...toDo,
+        { id: num, title: newTask, status: false }
+      ]);
       setNewTask('');
     }
   }
 
   const deleteTask = (id) => {
-    let newTasks = toDo.filter(task => task.id !== id);
-    setToDo(newTasks);
+    setToDo( toDo.filter(task => task.id !== id) );
   }
 
   const markDone = (id) => {
-    let doneTask = toDo.map(task => {
-      if (task.id === id) {
-        return ({ ...task, status: !task.status });
-      }
-      return task;
-    });
-    setToDo(doneTask);
+    setToDo(toDo.map(
+      task => task.id === id
+      ? ({ ...task, status: !task.status })
+      : task
+    ));
   }
 
   const cancelUpdate = () => {
     setUpdateTaskData('');
   }
 
-  const changeTask = (e) => {
-    let newEntry = {
-      id: updateTaskData.id,
-      title: e.target.value,
-      status: updateTaskData.status ? true : false,
-    }
-    setUpdateTaskData(newEntry);
+  const changeHolder = (e) => {
+    setUpdateTaskData({
+      ...updateTaskData,
+      title: e.target.value
+    });
   }
 
   const updateTask = () => {
-    let filterRecords = [...toDo].filter(task => task.id !== updateTaskData.id);
-    let upDatedObject = [...filterRecords, updateTaskData];
-    setToDo(upDatedObject);
+    const removeOldRecord = [...toDo].filter(task => task.id !== updateTaskData.id);
+    setToDo([
+      ...removeOldRecord,
+      updateTaskData
+    ]);
     setUpdateTaskData('');
   }
+
+  const handleKeypress = (e) => {
+    if (e.key === 'Enter' || e.key === 'Return') {
+      e.preventDefault();
+      addTask();
+    }
+  };
 
   return (
     <div className='container App'>
       <h2 className='app-title'>To Do List App</h2>
       {updateTaskData && updateTaskData ? (
         <UpdateForm 
-          changeTask={changeTask}
+          changeHolder={changeHolder}
           updateTask={updateTask}
           updateTaskData={updateTaskData}
           cancelUpdate={cancelUpdate}
@@ -75,6 +77,7 @@ function App() {
           newTask={newTask}
           addTask={addTask}
           setNewTask={setNewTask}
+          handleKeypress={handleKeypress}
         />
       )}
 

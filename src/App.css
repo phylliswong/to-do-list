@@ -20,8 +20,20 @@ body {
 .form-control-lg,
 .btn-lg {
   border-radius: 6px;
+  box-shadow: none;
 }
+
+.form-control:focus {
+  border-color: #333;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}  
 
 .mr-20 {
   margin-right: 20px;
+}
+
+.form-control:focus {
+  outline: none;
 }

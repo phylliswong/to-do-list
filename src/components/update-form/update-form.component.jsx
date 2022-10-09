@@ -1,14 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.css';
 
 const UpdateForm = (props) => {
-  const { changeTask, updateTask, updateTaskData, cancelUpdate } = props;
+  const { changeHolder, updateTask, updateTaskData, cancelUpdate } = props;
   return (
     <div className='row'>
       <div className='col'>
         <input
           value={ updateTaskData && updateTaskData.title }
-          onChange={ (e) => changeTask(e) }
-          className='form-control form-control-lg'
+          onChange={ (e) => changeHolder(e) }
+          className='form-control form-control-lg shadow-none'
         />
       </div>
       <div className='col-auto'>
