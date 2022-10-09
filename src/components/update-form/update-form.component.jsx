@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 const UpdateForm = (props) => {
   const { changeHolder, updateTask, updateTaskData, cancelUpdate } = props;
   return (
-    <div className='row'>
+    <div className='row add-task-row'>
       <div className='col'>
         <input
           value={ updateTaskData && updateTaskData.title }

@@ -4,7 +4,7 @@ import './add-task-form.style.css';
 const AddTaskForm = (props) => {
   const { addTask, newTask, setNewTask, handleKeypress } = props;
   return (
-    <div className='row'>
+    <div className='row add-task-row'>
       <div className='col'>
         <input
           value={newTask}

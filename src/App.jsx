@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import Navigationbar from './components/navbar/navbar.component';
 import AddTaskForm from './components/add-task-form/add-task-form.component';
 import UpdateForm from './components/update-form/update-form.component';
 import ToDo from './components/to-do/to-do.component';
@@ -63,8 +64,9 @@ function App() {
   };
 
   return (
-    <div className='container App'>
-      <h2 className='app-title'>To Do List App</h2>
+    <Fragment>
+      <Navigationbar />
+      <div className='container App'>
       {updateTaskData && updateTaskData ? (
         <UpdateForm 
           changeHolder={changeHolder}
@@ -98,6 +100,7 @@ function App() {
         })
       }
     </div>
+    </Fragment>
   );
 }
 
