@@ -1,0 +1,29 @@
+.navbar {
+  background: rgb(51, 51, 51);
+
+  .navbar-collapse {
+    margin-left: 24px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none
+  }
+
+  a:hover {
+    color: #0dcaf0;
+  }
+
+  div .signin-link {
+    height: 100%;
+    padding-right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+}
