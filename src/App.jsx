@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Navigationbar from './routes/navbar/navbar.component';
 import Home from './routes/home/home.component';
-import SignIn from './components/sign-in/sign-in.component';
+import Authentication from './components/authentication/authentication.component';
 
 import './App.css';
 
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Navigationbar />}>
           <Route path='home' element={<Home />} />
-          <Route path='sign-in' element={<SignIn />} />
+          <Route path='sign-in' element={<Authentication />} />
         </Route>
       </Routes>
     </Fragment>
