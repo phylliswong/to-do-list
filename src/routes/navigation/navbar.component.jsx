@@ -16,7 +16,7 @@ const Navigationbar = () => {
     <Fragment>
       <nav className='navigation-container navbar navbar-fixed-top'>
         <div className='logo-container'>
-          <Link className='navbar-brand nav-link' to='/home'>
+          <Link className='navbar-brand nav-link' to='/'>
             Logo
           </Link>
         </div>
