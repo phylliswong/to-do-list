@@ -2,21 +2,19 @@ import { Fragment, useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/user.context';
+import { signOutUser } from '../../utils/firebase/firebase-utils';
 
 import './navbar.styles.scss';
 
 const Navigationbar = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
-  const signOutUser = () => {
-    setCurrentUser(null);
-  }
   
   return (
     <Fragment>
       <nav className='navigation-container navbar navbar-fixed-top'>
         <div className='logo-container'>
-          <Link className='navbar-brand nav-link' to='/' tabindex='1'>
+          <Link className='navbar-brand nav-link' to='/' tabIndex='1'>
             Logo
           </Link>
         </div>
