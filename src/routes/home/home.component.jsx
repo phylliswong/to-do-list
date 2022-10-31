@@ -98,6 +98,13 @@ const Home = () => {
         })
       }
     </div>
+    <div className='save-btn-container'>
+      <button
+        className='save-btn btn btn-lg btn-success'
+      >
+        Save Tasks
+      </button>
+    </div>
     </Fragment>
   )
 }

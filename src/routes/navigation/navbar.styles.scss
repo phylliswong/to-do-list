@@ -21,6 +21,9 @@
   a:hover {
     color: #0dcaf0;
   }
+  .logo-container a:focus {
+    color: #ccc;
+  }
 
   div .signin-link {
     height: 100%;

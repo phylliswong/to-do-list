@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 
 import App from './App';
 
-import { UserProvider } from './components/contexts/user.context';
+import { UserProvider } from './contexts/user.context';
 
 import './index.css';
 

@@ -55,3 +55,8 @@
 .task-bg .icons-wrap span:hover {
   color: yellow;
 }
+
+.add-tasks-btn {
+  min-width: 132px;
+  margin-right: -4px;
+}

@@ -16,7 +16,7 @@ const AddTaskForm = (props) => {
       <div className='col-auto'>
         <button
           onClick={addTask}
-          className='btn btn-lg btn-success'
+          className='add-tasks-btn btn btn-lg btn-success'
         >Add Task</button>
       </div>
     </div>

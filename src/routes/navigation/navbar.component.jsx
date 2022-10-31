@@ -1,7 +1,7 @@
 import { Fragment, useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
-import { UserContext } from '../../components/contexts/user.context';
+import { UserContext } from '../../contexts/user.context';
 
 import './navbar.styles.scss';
 
@@ -16,7 +16,7 @@ const Navigationbar = () => {
     <Fragment>
       <nav className='navigation-container navbar navbar-fixed-top'>
         <div className='logo-container'>
-          <Link className='navbar-brand nav-link' to='/'>
+          <Link className='navbar-brand nav-link' to='/' tabindex='1'>
             Logo
           </Link>
         </div>
