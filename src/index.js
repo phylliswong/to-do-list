@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 
 import { UserProvider } from './contexts/user.context';
+import { TodosProvider } from './contexts/todos.context';
 
 import './index.css';
 
@@ -13,9 +14,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <App />
-      </UserProvider>
+      <TodosProvider>
+        <UserProvider>
+          <App />
+        </UserProvider>
+      </TodosProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

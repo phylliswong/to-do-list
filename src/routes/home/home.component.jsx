@@ -1,9 +1,11 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect, useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import AddTaskForm from '../../components/add-task-form/add-task-form.component';
 import UpdateForm from '../../components/update-form/update-form.component';
 import ToDo from '../../components/to-do/to-do.component';
+
+import { TodosContext } from '../../contexts/todos.context';
 
 import './home.styles.scss';
 
@@ -12,12 +14,26 @@ const Home = () => {
   const [newTask, setNewTask] = useState('');
   const [updateTaskData, setUpdateTaskData] = useState('');
 
+  const { todos } = useContext(TodosContext);
+
+  useEffect(() => {
+    setToDo(todos);
+  }, []);
+
   const addTask = () => {
     if (newTask) {
       const num = toDo.length + 1;
+      const task = {
+        id: num,
+        title: newTask,
+        status: false,
+        createdAt: new Date().valueOf(),
+        completedOn: null
+      };
+
       setToDo([
         ...toDo,
-        { id: num, title: newTask, status: false }
+        task
       ]);
       setNewTask('');
     }
