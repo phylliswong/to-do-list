@@ -1,13 +1,15 @@
 .sign-up-container {
   display: flex;
   flex-direction: column;
-  width: 380px;
+  width: 400px;
+  padding: 24px;
+  background-color: rgb(85,85,85);
+  border-radius: 8px;
 
   .form-input {
     background-color: #eee;
     border-radius: 8px;
   }
-
 
   h2 {
     margin: 10px 0;
