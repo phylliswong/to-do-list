@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
-import TODO_DATA from '../to-do-data.json';
+
+import { getCategoriesAndDocuments } from "../utils/firebase/firebase-utils";
 
 
 export const TodosContext = createContext({
@@ -8,12 +9,16 @@ export const TodosContext = createContext({
 });
 
 export const TodosProvider = ({ children }) => {
-  const [todos, setTodos] = useState(TODO_DATA);
+  const [todos, setTodos] = useState([]);
   const value = { todos };
 
   useEffect(() => {
-    console.log(TODO_DATA);
-    setTodos(TODO_DATA);
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCategoriesAndDocuments();
+      console.log(categoryMap);
+    }
+
+    getCategoriesMap();
   }, []);
 
   return <TodosContext.Provider value={value}> {children} </TodosContext.Provider>
