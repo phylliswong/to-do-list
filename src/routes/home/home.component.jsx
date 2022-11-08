@@ -8,7 +8,7 @@ import ToDo from '../../components/to-do/to-do.component';
 import { CategoriesContext } from '../../contexts/categories.context';
 
 import './home.styles.scss';
-// import todos from '../../to-do-data';
+import todos from '../../to-do-data';
 
 const Home = () => {
   const [toDo, setToDo] = useState([]);
@@ -18,8 +18,7 @@ const Home = () => {
   const { categoriesMap } = useContext(CategoriesContext);
 
   useEffect(() => {
-    setToDo(categoriesMap.todos);
-    console.log(categoriesMap.todos);
+    setToDo(todos);
   }, []);
 
   const addTask = () => {
