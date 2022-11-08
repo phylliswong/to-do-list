@@ -5,19 +5,21 @@ import AddTaskForm from '../../components/add-task-form/add-task-form.component'
 import UpdateForm from '../../components/update-form/update-form.component';
 import ToDo from '../../components/to-do/to-do.component';
 
-import { TodosContext } from '../../contexts/todos.context';
+import { CategoriesContext } from '../../contexts/categories.context';
 
 import './home.styles.scss';
+// import todos from '../../to-do-data';
 
 const Home = () => {
   const [toDo, setToDo] = useState([]);
   const [newTask, setNewTask] = useState('');
   const [updateTaskData, setUpdateTaskData] = useState('');
 
-  const { todos } = useContext(TodosContext);
+  const { categoriesMap } = useContext(CategoriesContext);
 
   useEffect(() => {
-    setToDo(todos);
+    setToDo(categoriesMap.todos);
+    console.log(categoriesMap.todos);
   }, []);
 
   const addTask = () => {
@@ -81,30 +83,38 @@ const Home = () => {
     <Fragment>
       <div className='home-container'>
       <Outlet />
-      {updateTaskData && updateTaskData ? (
-        <UpdateForm 
-          changeHolder={changeHolder}
-          updateTask={updateTask}
-          updateTaskData={updateTaskData}
-          cancelUpdate={cancelUpdate}
-        />
-      ) : (
-        <AddTaskForm
-          newTask={newTask}
-          addTask={addTask}
-          setNewTask={setNewTask}
-          handleKeypress={handleKeypress}
-        />
-      )}
+        {updateTaskData && updateTaskData ? (
+          <UpdateForm 
+            changeHolder={changeHolder}
+            updateTask={updateTask}
+            updateTaskData={updateTaskData}
+            cancelUpdate={cancelUpdate}
+          />
+        ) : (
+          <AddTaskForm
+            newTask={newTask}
+            addTask={addTask}
+            setNewTask={setNewTask}
+            handleKeypress={handleKeypress}
+          />
+        )}
+        { 
+          Object.keys(categoriesMap).map((title, index) => {
+            return (
+              <Fragment key={index}>
+                <h2 key={index}>{title}</h2>
+              </Fragment>
+            )
+          })
+        }
 
       {toDo && toDo.length ? '' : 'Add Some Tasks...'}
-      {toDo && toDo
-        .sort((a, b) => a.id > b.id ? 1 : -1)
-        .map((task, index) => {
+      {toDo
+        .map((todo, index) => {
           return(
             <ToDo
-              key={task.id}
-              task={task}
+              key={index}
+              task={todo}
               index={index}
               markDone={markDone}
               setUpdateTaskData={setUpdateTaskData}
