@@ -80,8 +80,18 @@ const Home = () => {
   };
   return (
     <Fragment>
-      <div className='home-container'>
       <Outlet />
+      <div className='home-container'>
+        { 
+          Object.keys(categoriesMap).map((title, index) => {
+            return (
+              <Fragment key={index}>
+                <h2 key={index}>{title}</h2>
+              </Fragment>
+            )
+          })
+        }
+      
         {updateTaskData && updateTaskData ? (
           <UpdateForm 
             changeHolder={changeHolder}
@@ -97,39 +107,30 @@ const Home = () => {
             handleKeypress={handleKeypress}
           />
         )}
-        { 
-          Object.keys(categoriesMap).map((title, index) => {
-            return (
-              <Fragment key={index}>
-                <h2 key={index}>{title}</h2>
-              </Fragment>
+        
+        {toDo && toDo.length ? '' : 'Add Some Tasks...'}
+        {toDo
+          .map((todo, index) => {
+            return(
+              <ToDo
+                key={index}
+                task={todo}
+                index={index}
+                markDone={markDone}
+                setUpdateTaskData={setUpdateTaskData}
+                deleteTask={deleteTask}
+              />
             )
           })
         }
-
-      {toDo && toDo.length ? '' : 'Add Some Tasks...'}
-      {toDo
-        .map((todo, index) => {
-          return(
-            <ToDo
-              key={index}
-              task={todo}
-              index={index}
-              markDone={markDone}
-              setUpdateTaskData={setUpdateTaskData}
-              deleteTask={deleteTask}
-            />
-          )
-        })
-      }
-    </div>
-    <div className='save-btn-container'>
-      <button
-        className='save-btn btn btn-lg btn-success'
-      >
-        Save Tasks
-      </button>
-    </div>
+      </div>
+      <div className='save-btn-container'>
+        <button
+          className='save-btn btn btn-lg btn-success'
+        >
+          Save Tasks
+        </button>
+      </div>
     </Fragment>
   )
 }
