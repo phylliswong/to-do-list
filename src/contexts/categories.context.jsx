@@ -22,7 +22,7 @@ export const CategoriesProvider = ({ children }) => {
   const value = { categoriesMap };
 
   return(
-    <CategoriesContext.Provider value={value}> 
+    <CategoriesContext.Provider value={value}>
       {children} 
     </CategoriesContext.Provider>
   )

@@ -4,7 +4,7 @@ import './landing.styles.scss';
 
 const Landing = () => {
   const navigateToHome = () => {
-    console.log(navigateToHome)
+    // console.log(navigateToHome)
   }
 
   return (
@@ -15,7 +15,7 @@ const Landing = () => {
           onClick={navigateToHome}
           className='navigate-home-btn btn btn-lg btn-success'
         >
-          Add some Tasks
+          View Tasks
         </Link>
       </div>
     </Fragment>
