@@ -19,14 +19,13 @@ import {
   getDocs,
 } from 'firebase/firestore';
 
-// TODO: move keys to a .env file
 const firebaseConfig = {
-  apiKey: "AIzaSyDVBYP3OzXJJD7okMwFcXh4akG8mctzFxw",
-  authDomain: "to-do-app-e78a2.firebaseapp.com",
-  projectId: "to-do-app-e78a2",
-  storageBucket: "to-do-app-e78a2.appspot.com",
-  messagingSenderId: "416452405924",
-  appId: "1:416452405924:web:c07d0d3aa1087d75949431"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
 const firebaseApp = initializeApp(firebaseConfig);

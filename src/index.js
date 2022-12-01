@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { datadogRum } from '@datadog/browser-rum';
 
+
 import App from './App';
 
 import { UserProvider } from './contexts/user.context';

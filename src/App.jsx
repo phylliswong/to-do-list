@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Navigationbar from './routes/navigation/navbar.component';
-import Landing from './components/landing/landing.component';
+import Landing from './components/landing/landing.component.tsx';
 import Home from './routes/home/home.component';
 import Authentication from './components/authentication/authentication.component';
 
